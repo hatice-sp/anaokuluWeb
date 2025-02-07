@@ -1,0 +1,67 @@
+﻿@model anaokuluWeb.Models.OgrenciInfo
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Products</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Ad" class="control-label"></label>
+                <input asp-for="Ad" class="form-control" />
+                <span asp-validation-for="Ad" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SoyAd" class="control-label"></label>
+                <input asp-for="SoyAd" class="form-control" />
+                <span asp-validation-for="SoyAd" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DogumTarihi" class="control-label"></label>
+                <input asp-for="DogumTarihi" class="form-control" />
+                <span asp-validation-for="DogumTarihi" class="text-danger"></span>
+            </div>
+            @*<div class="form-group">
+                    <label asp-for="VeliId" class="control-label"></label>
+                    <input asp-for="VeliId" class="form-control" />
+                    <span asp-validation-for="VeliId" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="SinifId" class="control-label"></label>
+                    <input asp-for="SinifId" class="form-control" />
+                    <span asp-validation-for="SinifId" class="text-danger"></span>
+                </div>*@
+            <div class="form-group">
+                <label asp-for="Veliler" class="control-label"></label>
+                <select asp-for="VeliId" asp-items="@Model.Veliler">
+                    <option>Please select one</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Siniflar" class="control-label"></label>
+                <select asp-for="SinifId" asp-items="@Model.Siniflar">
+                    <option>Please select one</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Edit" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

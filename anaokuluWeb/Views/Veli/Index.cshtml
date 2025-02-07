@@ -1,0 +1,124 @@
+﻿@model anaokuluWeb.Models.OgrenciIndexViewModel
+@{
+    ViewData["Title"] = "Index";
+}
+<style>
+   
+    /* Tablonun genel stil özellikleri */
+    .table {
+        width: 100%;
+        margin: 20px auto;
+        border-collapse: collapse;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+        /* Tablo hücrelerinin stil özellikleri */
+        .table th, .table td {
+            padding: 12px;
+            text-align: center;
+            border: 1px solid #ddd;
+            font-size: 14px;
+        }
+
+        /* Tablo başlıkları için stil */
+        .table th {
+            background-color: #800000;
+            color: white;
+            font-weight: bold;
+        }
+
+    /* Tablo satırlarının arka plan renginin değiştirilmesi */
+    .table-striped tbody tr:nth-child(odd) {
+        background-color: #f9f9f9;
+    }
+
+    .table-striped tbody tr:nth-child(even) {
+        background-color: #f1f1f1;
+    }
+
+    /* Hover efekti ekleme (fare ile üzerine gelince) */
+    .table tbody tr:hover {
+        background-color: #f2f2f2;
+        cursor: pointer;
+    }
+
+    /* Tabloyu hizalamak için genel stil */
+    .table-container {
+        margin: 0 auto;
+        width: 90%;
+        padding: 20px;
+        background-color: #f9f9f9;
+        border-radius: 8px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Tablo başlığı için ekstra stil */
+    .table-title {
+        font-size: 20px;
+        font-weight: bold;
+        color: #333;
+        margin-bottom: 10px;
+    }
+</style>
+<h1>Öğrenci Sayfası</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Id
+            </th>
+            <th>
+                Adı
+            </th>
+            <th>
+                Soyadı
+            </th>
+            <th>
+                Doğum Tarihi
+            </th>
+            <th>
+                Veli Adı
+            </th>
+            <th>
+                Sınıf Adı
+            </th>
+           
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.OgrenciList)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ad)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SoyAd)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DogumTarihi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.VeliAdi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SinifAdi)
+                </td>
+                @*<td>
+                    @if (item.SilinmisMi.Value == true)
+                    {
+                        <span>Evet</span>
+                    }
+                    else
+                    {
+                        <span>Hayır</span>
+                    }
+                </td>*@
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,87 @@
+﻿@model anaokuluWeb.Models.OgrenciIndexViewModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>OgrenciListe</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                id
+            </th>
+            <th>
+                ad
+            </th>
+            <th>
+                soyad
+            </th>
+            <th>
+                dogumtarihi
+            </th>
+            <th>
+                veliId
+            </th>
+            <th>
+                sınıfId
+            </th>
+            <th>
+                silinmismi
+            </th>
+            <th>
+                sinif
+            </th>
+            <th>
+                veli
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.OgrenciList)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ad)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SoyAd)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DogumTarihi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.VeliId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SinifId)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.SilinmisMi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sinif)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Veli)
+                </td>
+
+
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+

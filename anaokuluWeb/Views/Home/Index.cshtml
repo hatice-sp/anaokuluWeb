@@ -1,0 +1,49 @@
+﻿@{
+    ViewData["Title"] = "Index";
+}
+
+
+<div class="login">
+    <h1>Veritabanı Yedeği</h1>
+    <input type="submit" value="BackUp" id="backup" />
+    <input type="submit" value="Restore" id="restore" />
+</div>
+<style>
+    input[type="submit"] {
+        background: #800000;
+        color: white;
+        border: none;
+        padding: 12px 24px;
+        margin: 10px;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: bold;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+        input[type="submit"]:hover {
+            background: #a00000;
+            transform: scale(1.05);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        input[type="submit"]:active {
+            transform: scale(0.95);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+</style>
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#backup").click(function () {
+            window.location = '/Home/BackupDatabase'
+        });
+
+        $("#restore").click(function () {
+            window.location = '/Home/RestoreDatabase'
+        });
+    });
+</script>

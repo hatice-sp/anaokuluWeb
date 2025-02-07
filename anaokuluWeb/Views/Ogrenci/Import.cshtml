@@ -1,0 +1,14 @@
+﻿@model anaokuluWeb.Models.OgrenciImportModel
+
+<form enctype="multipart/form-data" method="post">
+    <dl>
+        <dt>
+            <label asp-for="file"></label>
+        </dt>
+        <dd>
+            <input asp-for="file" type="file">
+            <span asp-validation-for="file"></span>
+        </dd>
+    </dl>
+    <input asp-page-handler="Import" class="btn" type="submit" value="Upload" />
+</form>
